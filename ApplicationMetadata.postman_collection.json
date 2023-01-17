@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "986ba40f-d336-4c14-85b1-1e5c7af69995",
+		"name": "ApplicationMetadata",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2010115"
+	},
+	"item": [
+		{
+			"name": "MetadataAPI_InvalidEmail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-yaml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "title: App w/ Invalid maintainer email\r\nversion: 1.0.1\r\nmaintainers:\r\n- name: Firstname Lastname\r\n  email: apptwohotmail.com\r\ncompany: Upbound Inc.\r\nwebsite: https://upbound.io\r\nsource: https://github.com/upbound/repo\r\nlicense: \r\ndescription: |\r\n ### blob of markdown\r\n More markdown",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/metadata",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetadataAPI_MissingVersion",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-yaml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "title: App w/ missing version\r\nmaintainers:\r\n- name: first last\r\n  email: email@hotmail.com\r\n- name: first last\r\n  email: email@gmail.com\r\ncompany: Company Inc.\r\nwebsite: https://website.com\r\nsource: https://github.com/company/repo\r\nlicense: Apache-2.0\r\ndescription: |\r\n ### blob of markdown\r\n More markdown",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/metadata",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetadataAPI_App1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-yaml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "title: Valid App 1\r\nversion: 0.0.1\r\nmaintainers:\r\n- name: firstmaintainer app1\r\n  email: firstmaintainer@hotmail.com\r\n- name: secondmaintainer app1\r\n  email: secondmaintainer@gmail.com\r\ncompany: Random Inc.\r\nwebsite: https://website.com\r\nsource: https://github.com/random/repo\r\nlicense: Apache-2.0\r\ndescription: |\r\n ### Interesting Title\r\n Some application content, and description",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/metadata",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetadataAPI_App2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-yaml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "title: Valid App 2\r\nversion: 1.0.1\r\nmaintainers:\r\n- name: AppTwo Maintainer\r\n  email: apptwo@hotmail.com\r\ncompany: Upbound Inc.\r\nwebsite: https://upbound.io\r\nsource: https://github.com/upbound/repo\r\nlicense: Apache-2.0\r\ndescription: |\r\n ### Why app 2 is the best\r\n Because it simply is...",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/metadata",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"metadata"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MetaDataSearch",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/metadata/search?Title=Valid App 2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"metadata",
+						"search"
+					],
+					"query": [
+						{
+							"key": "Title",
+							"value": "Valid App 2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
